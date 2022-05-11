@@ -5,4 +5,10 @@ body {
 }
 
 @tailwind components;
+
+.masonry {
+  margin: 1.25rem auto;
+  max-width: 64rem;
+}
+
 @tailwind utilities;

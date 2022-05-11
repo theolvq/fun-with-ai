@@ -18,8 +18,8 @@ const Home: NextPage = () => {
       <Head>
         <title>Fun with AI!</title>
       </Head>
-      <div className='flex min-h-screen flex-col items-center  bg-slate-100'>
-        <div className='w-full max-w-xl py-12'>
+      <div className='grid min-h-screen  bg-slate-100'>
+        <div className='mx-auto w-full max-w-xl py-12'>
           <h1 className='text-bold via-purple  via-sky6800 mb-8 bg-gradient-to-r from-sky-600 to-cyan-400 bg-clip-text text-4xl font-bold text-transparent'>
             Fun with AI!
           </h1>
