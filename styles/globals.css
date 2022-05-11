@@ -1,3 +1,8 @@
 @tailwind base;
+
+body {
+  @apply text-slate-600;
+}
+
 @tailwind components;
 @tailwind utilities;

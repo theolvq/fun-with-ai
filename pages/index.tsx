@@ -1,62 +1,32 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { CreateCompletionResponse } from 'openai';
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import Form from '../components/Form';
+import Responses from '../components/Responses';
+import { Response } from '../types';
 
 const Home: NextPage = () => {
   const [prompt, setPrompt] = useState('');
-  const [apiResponses, setApiResponses] = useState<CreateCompletionResponse[]>([]);
-  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    const { value } = e.target;
-    setPrompt(value);
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const response = await fetch('/api/open-ai', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(prompt),
-    });
-    const json = await response.json();
-
-    setApiResponses((prev) => [...prev, json]);
-    setPrompt('');
-  };
+  const [responses, setResponses] = useState<Response[]>([]);
 
   useEffect(() => {
-    console.log(apiResponses);
-  }, [apiResponses]);
+    console.log(responses);
+  }, [responses]);
 
   return (
     <>
       <Head>
         <title>Fun with AI!</title>
       </Head>
-      <h1>Fun with AI!</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Prompt</label>
-        <textarea
-          name='prompt'
-          id='prompt'
-          cols={30}
-          rows={10}
-          onChange={handleChange}
-          value={prompt}
-        />
-        <button>Submit</button>
-        {apiResponses.length > 0 &&
-          apiResponses.map(({ choices, id }) => {
-            if (!choices) return null;
-            return (
-              <div key={id}>
-                <p>{choices[0].text}</p>
-              </div>
-            );
-          })}
-      </form>
+      <div className='flex min-h-screen flex-col items-center  bg-slate-100'>
+        <div className='w-full max-w-xl py-12'>
+          <h1 className='text-bold via-purple  via-sky6800 mb-8 bg-gradient-to-r from-sky-600 to-cyan-400 bg-clip-text text-4xl font-bold text-transparent'>
+            Fun with AI!
+          </h1>
+          <Form prompt={prompt} setPrompt={setPrompt} setApiResponses={setResponses} />
+        </div>
+        <Responses responses={responses} />
+      </div>
     </>
   );
 };
