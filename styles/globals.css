@@ -1,9 +1,5 @@
 @tailwind base;
 
-body {
-  @apply text-slate-600;
-}
-
 @tailwind components;
 
 .masonry {
@@ -12,3 +8,7 @@ body {
 }
 
 @tailwind utilities;
+
+.animate {
+  transition: all 0.3s ease;
+}

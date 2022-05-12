@@ -9,8 +9,12 @@ const Card: FC<RenderComponentProps<Response>> = ({ index, width, data }) => {
     return null;
   }
   return (
-    <div key={id} className='flex flex-col gap-4 rounded-lg bg-slate-50 p-8 shadow-md'>
+    <div
+      key={id}
+      className='flex flex-col gap-4 rounded-lg border bg-slate-50 p-8 shadow-md dark:border-slate-50/[.08] dark:bg-slate-800 dark:text-slate-100'
+    >
       <div>
+        {index + 1}
         <CardHeader>Prompt:</CardHeader>
         <p>{prompt}</p>
       </div>

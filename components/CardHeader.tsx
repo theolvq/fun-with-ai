@@ -5,7 +5,7 @@ interface Props {
 }
 
 const CardHeader: FC<Props> = ({ children }) => {
-  return <h2 className='text-lg font-semibold text-slate-800'>{children}</h2>;
+  return <h2 className='text-lg font-semibold text-slate-800 dark:text-slate-300'>{children}</h2>;
 };
 
 export default CardHeader;

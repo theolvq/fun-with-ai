@@ -2,31 +2,29 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Form from '../components/Form';
+import Header from '../components/Header';
 import Responses from '../components/Responses';
 import { Response } from '../types';
 
 const Home: NextPage = () => {
   const [prompt, setPrompt] = useState('');
   const [responses, setResponses] = useState<Response[]>([]);
-
-  useEffect(() => {
-    console.log(responses);
-  }, [responses]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   return (
     <>
       <Head>
         <title>Fun with AI!</title>
       </Head>
-      <div className='grid min-h-screen  bg-slate-100'>
-        <div className='mx-auto w-full max-w-xl py-12'>
-          <h1 className='text-bold via-purple  via-sky6800 mb-8 bg-gradient-to-r from-sky-600 to-cyan-400 bg-clip-text text-4xl font-bold text-transparent'>
-            Fun with AI!
-          </h1>
-          <Form prompt={prompt} setPrompt={setPrompt} setApiResponses={setResponses} />
+      <main className={isDarkMode ? 'dark' : ''}>
+        <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        <div className='grid min-h-screen  bg-slate-100 text-slate-600 dark:bg-gray-900 dark:text-gray-100'>
+          <div className='mx-auto w-full max-w-screen-lg space-y-16 py-12'>
+            <Form prompt={prompt} setPrompt={setPrompt} setApiResponses={setResponses} />
+            <Responses responses={responses} />
+          </div>
         </div>
-        <Responses responses={responses} />
-      </div>
+      </main>
     </>
   );
 };
