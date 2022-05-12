@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { Dispatch, FC, SetStateAction } from 'react';
 import { SunIcon, MoonIcon } from '@heroicons/react/outline';
 
 interface Props {
   isDarkMode: boolean;
-  setIsDarkMode: (isDarkMode: boolean) => void;
+  setIsDarkMode: Dispatch<SetStateAction<boolean>>;
 }
 
 const Header: FC<Props> = ({ isDarkMode, setIsDarkMode }) => {
@@ -14,8 +14,8 @@ const Header: FC<Props> = ({ isDarkMode, setIsDarkMode }) => {
     <>
       <div className='absolute inset-x-0 top-0 -z-10 h-full w-full bg-slate-50 dark:bg-slate-800' />
       <header
-        className='animate sticky top-0 z-50 border-b border-slate-900/[0.1] bg-slate-50 bg-opacity-50 backdrop-blur-sm 
-      dark:border-slate-50/[.25] dark:bg-slate-800 dark:bg-opacity-75'
+        className='animate sticky top-0 z-50 border-b border-slate-900/[0.1] bg-slate-50 bg-opacity-50 px-4 
+      backdrop-blur-sm dark:border-slate-50/[.25] dark:bg-slate-800 dark:bg-opacity-75 md:px-6 lg:px-8'
       >
         <div className='mx-auto flex max-w-screen-lg items-center justify-between py-4'>
           <h1

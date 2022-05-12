@@ -61,7 +61,7 @@ const Form: FC<Props> = ({ prompt, setPrompt, setApiResponses }) => {
             focus-visible:outline-2 focus-visible:outline-blue-300 dark:bg-slate-900 dark:text-slate-100'
             name='prompt'
             id='prompt'
-            rows={20}
+            rows={10}
             onChange={handleChange}
             value={prompt}
           />
