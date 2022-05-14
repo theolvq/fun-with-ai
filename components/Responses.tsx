@@ -1,9 +1,7 @@
 import { Masonry } from 'masonic';
-import { CreateCompletionResponse } from 'openai';
 import React, { FC, useEffect, useState } from 'react';
 import { Response } from '../types';
 import Card from './Card';
-import CardHeader from './CardHeader';
 
 interface Props {
   responses: Response[];
@@ -14,6 +12,7 @@ const Responses: FC<Props> = ({ responses }) => {
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
+    setWindowWidth(window.innerWidth);
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
@@ -25,10 +24,6 @@ const Responses: FC<Props> = ({ responses }) => {
   }, []);
 
   useEffect(() => {
-    if (!window) {
-      return;
-    }
-    console.log(windowWidth);
     if (windowWidth < 600) {
       setColumnCount(1);
     }
@@ -51,6 +46,7 @@ const Responses: FC<Props> = ({ responses }) => {
 
   return (
     <Masonry
+      as='ul'
       items={responses}
       render={Card}
       columnGutter={16}

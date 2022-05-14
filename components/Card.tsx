@@ -9,7 +9,7 @@ const Card: FC<RenderComponentProps<Response>> = ({ index, width, data }) => {
     return null;
   }
   return (
-    <div
+    <li
       key={id}
       className='flex flex-col gap-4 rounded-lg border bg-slate-50 p-8 shadow-md dark:border-slate-50/[.08] dark:bg-slate-800 dark:text-slate-100'
     >
@@ -22,7 +22,7 @@ const Card: FC<RenderComponentProps<Response>> = ({ index, width, data }) => {
         <CardHeader>Answer: </CardHeader>
         <p>{choices[0].text}</p>
       </div>
-    </div>
+    </li>
   );
 };
 
