@@ -25,7 +25,7 @@ const Header: FC<Props> = ({ isDarkMode, setIsDarkMode }) => {
           >
             Fun with AI
           </h1>
-          <button onClick={handleClick}>
+          <button onClick={handleClick} aria-label='Toggle dark mode'>
             {isDarkMode ? (
               <SunIcon className='h-5 w-5 text-slate-100' />
             ) : (
