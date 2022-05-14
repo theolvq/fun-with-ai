@@ -10,6 +10,19 @@ const Main = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
   useEffect(() => {
+    const storedResponses = localStorage.getItem('responses');
+    if (storedResponses) {
+      setResponses(JSON.parse(storedResponses));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (responses.length > 0) {
+      localStorage.setItem('responses', JSON.stringify(responses));
+    }
+  }, [responses]);
+
+  useEffect(() => {
     if (window.matchMedia) {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         setIsDarkMode(true);
