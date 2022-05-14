@@ -1,4 +1,3 @@
-import { CreateCompletionResponse } from 'openai';
 import React, {
   ChangeEvent,
   Dispatch,
@@ -115,6 +114,11 @@ const Form: FC<Props> = ({ prompt, setPrompt, setApiResponses }) => {
           )}
           <span>Submit</span>
         </button>
+        {error && (
+          <div className='text-center text-red-300'>
+            <p>{error}</p>
+          </div>
+        )}
       </form>
     </div>
   );

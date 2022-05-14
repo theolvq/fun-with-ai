@@ -7,7 +7,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Fun with AI!</title>
-        <meta name='Generate human written-like text using AI' />
+        <meta name='description' content='Generate human written-like text using AI' />
       </Head>
       <Main />
     </>
