@@ -12,12 +12,12 @@ const Header: FC<Props> = ({ isDarkMode, setIsDarkMode }) => {
   };
   return (
     <>
-      <div className='absolute inset-x-0 top-0 -z-10 h-full w-full bg-slate-50 dark:bg-slate-800' />
+      <div className='absolute inset-x-0 top-0 -z-10 h-[4.5rem] w-full bg-slate-50 dark:bg-slate-800' />
       <header
         className='animate sticky top-0 z-50 border-b border-slate-900/[0.1] bg-slate-50 bg-opacity-50 px-4 
       backdrop-blur-sm dark:border-slate-50/[.25] dark:bg-slate-800 dark:bg-opacity-75 md:px-6 lg:px-8'
       >
-        <div className='mx-auto flex max-w-screen-lg items-center justify-between py-4'>
+        <nav className='mx-auto flex max-w-screen-lg items-center justify-between py-4'>
           <h1
             className='text-bold to bg-gradient-to-r from-sky-800 via-cyan-800 to-blue-800
           bg-clip-text text-4xl font-bold text-transparent
@@ -32,7 +32,7 @@ const Header: FC<Props> = ({ isDarkMode, setIsDarkMode }) => {
               <MoonIcon className='h-5 w-5 text-slate-900' />
             )}
           </button>
-        </div>
+        </nav>
       </header>
     </>
   );

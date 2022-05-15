@@ -4,15 +4,12 @@ import { Response } from '../types';
 import CardHeader from './CardHeader';
 
 const Card: FC<RenderComponentProps<Response>> = ({ data }) => {
-  const { id, prompt, choices } = data;
+  const { prompt, choices } = data;
   if (!choices) {
     return null;
   }
   return (
-    <li
-      key={id}
-      className='flex flex-col gap-4 rounded-lg border bg-slate-50 p-8 shadow-md dark:border-slate-50/[.08] dark:bg-slate-800 dark:text-slate-100'
-    >
+    <div className='flex flex-col gap-4 rounded-lg border bg-slate-50 p-8 shadow-md dark:border-slate-50/[.08] dark:bg-slate-800 dark:text-slate-100'>
       <div>
         <CardHeader>Prompt:</CardHeader>
         <p>{prompt}</p>
@@ -21,7 +18,7 @@ const Card: FC<RenderComponentProps<Response>> = ({ data }) => {
         <CardHeader>Answer: </CardHeader>
         <p>{choices[0].text}</p>
       </div>
-    </li>
+    </div>
   );
 };
 

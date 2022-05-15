@@ -46,7 +46,8 @@ const Responses: FC<Props> = ({ responses }) => {
 
   return (
     <Masonry
-      as='ul'
+      as='ol'
+      itemAs='li'
       items={responses}
       render={Card}
       columnGutter={16}
